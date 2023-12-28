@@ -1,11 +1,11 @@
 body {
 	margin: 0;
 	height: 100svh;
-	font-family: 'Exo 2', sans-serif;
+	font-family: "Exo 2", sans-serif;
+	background-color: black;
 }
 
 header {
-	background-color: black;
 	padding: 10px;
 	display: grid;
 	grid-auto-flow: column;
@@ -53,4 +53,17 @@ footer a {
 
 footer i {
 	font-size: 1.5rem;
+}
+
+main {
+	background-image: url(./assets/Russels_Lab_80.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#root {
+	display: grid;
+	height: 100svh;
+	grid-template-rows: auto 1fr;
 }
