@@ -11,6 +11,9 @@ function Game() {
         {name: "ANTLION WORKER", image: "./src/assets/HLA_AntlionWorker.png"},
     ]);
     const [toggleRefresh, setToggleRefresh] = useState(false);
+    const [clickedCards, setClickedCards] = useState([]);
+    const [score, setScore] = useState(0);
+    const [highScore, setHighScore] = useState(0);
     
     function randomizeCards() {
         let currentIndex = cardList.length,  randomIndex;
@@ -27,15 +30,39 @@ function Game() {
         setToggleRefresh(!toggleRefresh);
     }
 
+    function handleCardClick(e) {
+        const name = e.target.parentNode.innerText;
+        if (clickedCards.includes(name)) {
+            setHighScore(score);
+            console.log("GAME OVER");
+            setClickedCards([]);
+            setScore(0);
+            
+            randomizeCards();
+            return;
+        }
+        setClickedCards(c => [...c, name]);
+        setScore(score + 1);
+        if (score >= 5) {
+            console.log("YOU WIN");
+        }
+
+        randomizeCards();
+    }
+
     return (
         <main>
+            <div className="score-container">
+                <h2>SCORE: {score}</h2>
+                <h2>HIGH-SCORE: {highScore}</h2>
+            </div>
             <div className="card-container" key={toggleRefresh}>
-                <Card name={cardList[0].name} image={cardList[0].image} randomizeCards={() => randomizeCards()} />
-                <Card name={cardList[1].name} image={cardList[1].image} randomizeCards={() => randomizeCards()} />
-                <Card name={cardList[2].name} image={cardList[2].image} randomizeCards={() => randomizeCards()} />
-                <Card name={cardList[3].name} image={cardList[3].image} randomizeCards={() => randomizeCards()} />
-                <Card name={cardList[4].name} image={cardList[4].image} randomizeCards={() => randomizeCards()} />
-                <Card name={cardList[5].name} image={cardList[5].image} randomizeCards={() => randomizeCards()} />
+                <Card name={cardList[0].name} image={cardList[0].image} clickFunction={(e) => handleCardClick(e)} />
+                <Card name={cardList[1].name} image={cardList[1].image} clickFunction={(e) => handleCardClick(e)} />
+                <Card name={cardList[2].name} image={cardList[2].image} clickFunction={(e) => handleCardClick(e)} />
+                <Card name={cardList[3].name} image={cardList[3].image} clickFunction={(e) => handleCardClick(e)} />
+                <Card name={cardList[4].name} image={cardList[4].image} clickFunction={(e) => handleCardClick(e)} />
+                <Card name={cardList[5].name} image={cardList[5].image} clickFunction={(e) => handleCardClick(e)} />
                 <Card />
                 <Card />
                 <Card />

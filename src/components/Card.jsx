@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 function Card(props) {
 	return (
-		<div className="card" onClick={props.randomizeCards}>
+		<div className="card" onClick={props.clickFunction}>
 			<img src={props.image} alt={props.name} />
 			<h3>{props.name}</h3>
 		</div>
@@ -16,7 +16,7 @@ Card.defaultProps = {
 Card.propTypes = {
     name: PropTypes.string,
     image: PropTypes.string,
-    randomizeCards: PropTypes.func,
+    clickFunction: PropTypes.func,
 }
 
 export default Card;

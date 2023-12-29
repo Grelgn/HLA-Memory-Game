@@ -66,6 +66,11 @@ main {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	display: grid;
+	grid-auto-flow: column;
+	align-content: center;
+	justify-content: center;
+	gap: 10px;
 }
 
 #root {
@@ -75,8 +80,7 @@ main {
 }
 
 .card {
-	padding: 10px 10px 0 0;
-	/* border: 5px solid var(--combine-blue); */
+	padding: 0;
 	color: var(--combine-blue);
 	background-color: var(--combine-dark-blue);
 	display: grid;
@@ -91,6 +95,7 @@ main {
 
 .card > * {
 	border-left: 8px solid var(--combine-blue);
+	cursor: pointer;
 }
 
 .card-container {
@@ -107,4 +112,21 @@ main {
 	height: 175px;
 	object-fit: contain;
 	object-position: center;
+}
+
+.score-container {
+	display: grid;
+	margin: 10px;
+	padding: 0;
+	height: 108px;
+	width: 190px;
+	color: var(--combine-blue);
+	background-color: var(--combine-dark-blue);
+	align-items: center;
+	border-left: 8px solid var(--combine-blue);
+}
+
+.score-container h2 {
+	padding: 0 10px;
+	margin: 0;
 }
