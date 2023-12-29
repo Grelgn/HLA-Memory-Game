@@ -1,8 +1,15 @@
+:root {
+	--combine-blue: hsl(189, 95%, 44%);
+	--combine-light-blue: hsl(177, 71%, 43%);
+	--combine-dark-blue: hsl(197, 83%, 9%);
+}
+
 body {
 	margin: 0;
 	height: 100svh;
 	font-family: "Exo 2", sans-serif;
 	background-color: black;
+	color: white;
 }
 
 header {
@@ -15,7 +22,6 @@ header {
 }
 
 header h1 {
-	color: white;
 	font-size: 4.1rem;
 	font-weight: 100;
 	margin: 0;
@@ -66,4 +72,40 @@ main {
 	display: grid;
 	height: 100svh;
 	grid-template-rows: auto 1fr;
+}
+
+.card {
+	padding: 10px 10px 0 0;
+	/* border: 5px solid var(--combine-blue); */
+	color: var(--combine-blue);
+	background-color: var(--combine-dark-blue);
+	display: grid;
+	gap: 5px;
+}
+
+.card h3 {
+	margin: 0;
+	padding: 5px;
+	font-size: 0.8rem;
+}
+
+.card > * {
+	border-left: 8px solid var(--combine-blue);
+}
+
+.card-container {
+	margin: 10px;
+	display: grid;
+	justify-content: center;
+	gap: 10px;
+	grid-template-columns: repeat(6, auto);
+	grid-template-rows: repeat(3, auto);
+}
+
+.card img {
+	width: 140px;
+	height: 175px;
+	object-fit: contain;
+	object-position: center;
+	background-color: white;
 }
