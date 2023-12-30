@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
+import Video from "./Video";
 
 function Game() {
 	const [cardList, setCardList] = useState([
@@ -14,6 +15,8 @@ function Game() {
 	const [clickedCards, setClickedCards] = useState([]);
 	const [score, setScore] = useState(0);
 	const [highScore, setHighScore] = useState(0);
+    const [video, setVideo] = useState("Loop");
+    const [gameVisibility, setGameVisibility] = useState(true);
 
 	function randomizeCards() {
 		let currentIndex = cardList.length,
@@ -30,21 +33,56 @@ function Game() {
 		setToggleRefresh(!toggleRefresh);
 	}
 
+    useEffect(() => {
+        const vis = document.querySelectorAll("main > div");
+        if (gameVisibility) {
+            vis[0].classList.remove("invisible");
+            vis[1].classList.remove("invisible");
+        } else {
+            vis[0].classList.add("invisible");
+            vis[1].classList.add("invisible");
+        }
+    }, [gameVisibility]);
+
 	function handleCardClick(e) {
 		const name = e.target.parentNode.innerText;
 		if (clickedCards.includes(name)) {
-			setHighScore(score);
+            setGameVisibility(false);
+            setVideo("Lost");
+
+            if (score > highScore) {
+                setHighScore(score);
+            }
+			
 			console.log("GAME OVER");
 			setClickedCards([]);
 			setScore(0);
 
 			randomizeCards();
+
+            setTimeout(() => {
+                setVideo("Loop");
+                setGameVisibility(true);
+            }, 8000);
+
 			return;
 		}
 		setClickedCards((c) => [...c, name]);
-		setScore(score + 1);
+		setScore(s => s + 1);
 		if (score >= 5) {
+            setGameVisibility(false);
+            setVideo("Won");
+            setHighScore(score + 1);
 			console.log("YOU WIN");
+            setClickedCards([]);
+			setScore(0);
+
+            randomizeCards();
+
+            setTimeout(() => {
+                setVideo("Loop");
+                setGameVisibility(true);
+            }, 12000);
 		}
 
 		randomizeCards();
@@ -52,9 +90,7 @@ function Game() {
 
 	return (
 		<main>
-            <video autoPlay muted loop height={50}>
-				<source src="./src/assets/Wupgrade_Loop2.mp4" type="video/mp4" />
-			</video>
+            <Video videoState={video} key={video}/>
 			<div className="score-container">
 				<h2>SCORE: {score}</h2>
 				<h2>HIGH-SCORE: {highScore}</h2>

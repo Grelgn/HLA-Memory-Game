@@ -1,7 +1,10 @@
 :root {
 	--combine-blue: hsl(189, 95%, 44%);
-	--combine-light-blue: hsl(177, 71%, 43%);
+	--combine-light-blue: hsl(180, 57%, 57%);
 	--combine-dark-blue: hsl(197, 83%, 9%, 0.4);
+	--combine-text: hsl(188, 69%, 44%);
+	--combine-hover: hsl(194, 98%, 37%);
+	--combine-hovertext: hsl(188, 74%, 53%);
 }
 
 body {
@@ -49,7 +52,7 @@ footer a {
 }
 
 .footer-text {
-	font-weight: bold;
+	font-weight: 300;
 	letter-spacing: 5px;
 	display: grid;
 	grid-auto-flow: column;
@@ -98,20 +101,22 @@ main {
 .card {
 	padding: 0;
 	color: var(--combine-blue);
-	background-color: var(--combine-dark-blue);
 	display: grid;
-	gap: 5px;
+	cursor: pointer;
+	border: 2px solid var(--combine-blue);
+}
+
+.card:hover {
+	background-color: var(--combine-hover);
+	border-color: var(--combine-hover);
+	color: var(--combine-hovertext);
 }
 
 .card h3 {
 	margin: 0;
 	padding: 5px;
 	font-size: 0.8rem;
-}
-
-.card > * {
-	border-left: 5px solid var(--combine-blue);
-	cursor: pointer;
+	font-weight: 600;
 }
 
 .card-container {
@@ -138,18 +143,23 @@ main {
 	height: 108px;
 	width: 190px;
 	color: var(--combine-blue);
-	background-color: var(--combine-dark-blue);
 	align-items: center;
-	border-left: 5px solid var(--combine-blue);
+	border-left: 4px solid var(--combine-blue);
 	z-index: 1;
 }
 
 .score-container h2 {
 	padding: 0 10px;
 	margin: 0;
+	font-weight: 300;
 }
 
 video {
 	transform: scale(14) translateX(52.5%) translateY(43%);
 	filter: brightness(80%);
+	border-left: 1px solid var(--combine-blue);
+}
+
+.invisible {
+	visibility: hidden;
 }
