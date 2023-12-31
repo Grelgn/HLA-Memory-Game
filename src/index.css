@@ -6,6 +6,7 @@
 	--combine-hover: hsl(194, 98%, 37%);
 	--combine-hovertext: hsl(188, 74%, 53%);
 	--combine-dark: hsl(192, 81%, 33%);
+	--combine-background: hsl(198, 75%, 16%, 0.4);
 }
 
 body {
@@ -84,7 +85,7 @@ main {
 	align-content: center;
 	justify-content: center;
 	align-items: start;
-	margin-left: -125px;
+	margin-left: -106px;
 }
 
 #root {
@@ -99,9 +100,10 @@ main {
 	cursor: pointer;
 	border: 2px solid var(--combine-blue);
 	overflow: hidden;
+	transform: translateX(2px);
 }
 
-.card:hover {
+.card:hover, .start button:hover, .lost button:hover, .won button:hover {
 	background-color: var(--combine-hover);
 	border-color: var(--combine-hover);
 	color: var(--combine-hovertext);
@@ -112,7 +114,7 @@ main {
 	padding: 5px;
 	font-size: 0.8rem;
 	font-weight: 600;
-	margin-top: -15px;
+	margin-top: -20px;
 }
 
 .card-container {
@@ -123,6 +125,8 @@ main {
 	grid-template-columns: repeat(6, auto);
 	grid-template-rows: repeat(3, auto);
 	z-index: 1;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--combine-dark);
 }
 
 .card img {
@@ -130,8 +134,8 @@ main {
 	height: 175px;
 	object-fit: contain;
 	object-position: center;
-	margin-top: -10px;
-	transform: scale(1.1);
+	margin-top: -15px;
+	transform: scale(1);
 }
 
 .score-container {
@@ -139,18 +143,21 @@ main {
 	margin: 10px 5px;
 	padding: 0;
 	height: 108px;
-	width: 220px;
+	width: 215px;
+	height: 120px;
 	align-items: center;
-	border-left: 5px solid var(--combine-blue);
+	border-top: 2px solid var(--combine-blue);
 	z-index: 1;
 	justify-items: end;
 	align-content: center;
+	transform: translateX(8px);
 }
 
 .score-container h2 {
-	padding: 0 10px;
+	padding-right: 30px;
 	margin: 0;
 	font-weight: 400;
+	transform: translateY(-2px);
 }
 
 .score-container b{
@@ -181,14 +188,20 @@ video {
 	z-index: 1;
 }
 
+.game-bottom img {
+	height: 57px;
+	filter: brightness(140%);
+	transform: translateY(-5px) scaleX(235%) translateX(29.5%);
+}
+
 .game-top {
 	border-bottom: 1px solid var(--combine-dark);
 	display: grid;
 	grid-auto-flow: column;
 	justify-content: space-between;
 	color: var(--combine-dark);
-	width: 1162px;
-	margin-right: 20px;
+	width: 1160px;
+	transform: translateX(5px);
 }
 
 .top-right {
@@ -230,4 +243,39 @@ video {
 .top-left b {
 	font-weight: 500;
 	color: var(--combine-blue);
+}
+
+.start, .lost, .won {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	display: grid;
+	transform: translateX(-50%) translateY(-30%);
+}
+
+.start h2, .start button, .lost h2, .lost button, .won h2, .won button {
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+
+.start button, .lost button, .won button {
+	background-color: transparent;
+	border: 1px solid var(--combine-blue);
+	cursor: pointer;
+	color: var(--combine-blue);
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.lost svg {
+	fill: hsl(356, 89%, 39%);
+	height: 40px;
+}
+
+.lost-text {
+	display: grid;
+	grid-auto-flow: column;
+	align-items: center;
+	gap: 20px;
 }
