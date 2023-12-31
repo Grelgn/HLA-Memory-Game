@@ -28,12 +28,41 @@ function Game() {
 	const [clickedCards, setClickedCards] = useState([]);
 	const [score, setScore] = useState(0);
 	const [highScore, setHighScore] = useState(0);
-    const [video, setVideo] = useState("Won");
+    const [video, setVideo] = useState("Loop");
     const [gameVisibility, setGameVisibility] = useState(false);
-    const [dataVisibility, setDataVisibility] = useState(false);
-    const [startVisibility, setStartVisibility] = useState(false);
+    const [dataVisibility, setDataVisibility] = useState(true);
+    const [startVisibility, setStartVisibility] = useState(true);
     const [lostVisibility, setLostVisibility] = useState(false);
     const [wonVisibility, setWonVisibility] = useState(false);
+
+    //Sounds
+    const audioOpen = new Audio("./src/assets/open.wav");
+    const audioStart = new Audio("./src/assets/start.wav");
+    const audioSelect = new Audio("./src/assets/select.wav");
+    const audioComplete = new Audio("./src/assets/complete.wav");
+    const audioHover = new Audio("./src/assets/hover.wav");
+    const audioRetract = new Audio("./src/assets/retract.wav");
+    const audioRetract2 = new Audio("./src/assets/retract2.wav");
+    const audioFail = new Audio("./src/assets/fail.wav");
+    // const audioLoop = new Audio("./src/assets/underground.mp3");
+
+    audioOpen.volume = 0.1;
+    audioStart.volume = 0.1;
+    audioSelect.volume = 0.2;
+    audioComplete.volume = 0.2;
+    audioHover.volume = 0.2;
+    audioRetract.volume = 0.1;
+    audioRetract2.volume = 0.1;
+    audioFail.volume = 0.2;
+    // audioLoop.volume = 0.03;
+
+    // audioLoop.addEventListener('timeupdate', function(){
+    //     const buffer = 0.356;
+    //     if(this.currentTime > this.duration - buffer){
+    //         this.currentTime = 0
+    //         this.play()
+    //     }
+    // });
 
 	function randomizeCards() {
 		let currentIndex = cardList.length,
@@ -105,20 +134,19 @@ function Game() {
         }
     }, [wonVisibility]);
 
-    // Start
-    useEffect(() => {
-        setTimeout(() => {
-            setVideo("Loop");
-            setDataVisibility(true);
-            setStartVisibility(true);
-        }, 12000);
-    }, []);
-
 	function handleCardClick(e) {
 		const name = e.target.parentNode.innerText;
 
         // Lost Game
 		if (clickedCards.includes(name)) {
+            audioFail.play();
+            setTimeout(() => {
+                audioRetract.play();
+            }, 1200);
+            setTimeout(() => {
+                audioRetract2.play();
+            }, 4200);
+
             setGameVisibility(false);
             setDataVisibility(false);
             setVideo("Lost");
@@ -142,6 +170,7 @@ function Game() {
 			return;
 		}
 
+        audioSelect.play();
 		setClickedCards((c) => [...c, name]);
 		setScore(s => s + 1);
 
@@ -155,14 +184,16 @@ function Game() {
             setClickedCards([]);
 			setScore(0);
 
-            randomizeCards();
-
+            audioOpen.play();
             setTimeout(() => {
+                audioStart.play();
+            }, 1000);
+            setTimeout(() => {
+                audioComplete.play();
                 setVideo("Loop");
-                setGameVisibility(false);
                 setWonVisibility(true);
                 setDataVisibility(true);
-            }, 12000);
+            }, 9000);
 		}
 
 		randomizeCards();
@@ -170,11 +201,41 @@ function Game() {
 
     // Handle start and restart
     function handleStartClick() {
+        // audioLoop.play();
+        audioSelect.play();
+        setVideo("Won");
+        setStartVisibility(false);
+        setLostVisibility(false);
+        setWonVisibility(false);
+        setGameVisibility(false);
+        setDataVisibility(false);
+        audioOpen.play();
+        setTimeout(() => {
+            audioStart.play();
+        }, 1000);
+        setTimeout(() => {
+            audioComplete.play();
+            setVideo("Loop");
+            setGameVisibility(true);
+            setDataVisibility(true);
+            randomizeCards();
+        }, 9000);
+    }
+
+    function handleRestartClick() {
+        audioSelect.play();
+        setVideo("Loop");
         setStartVisibility(false);
         setLostVisibility(false);
         setWonVisibility(false);
         setGameVisibility(true);
+        setDataVisibility(true);
         randomizeCards();
+    }
+
+    // Button sounds
+    function handleHover() {
+        audioHover.play();
     }
 
 	return (
@@ -220,7 +281,7 @@ function Game() {
                 <h2>
                     REPORT ALL BIOTICS WITHOUT REPETITION
                 </h2>
-                <button onClick={handleStartClick}>
+                <button onClick={handleStartClick} onMouseEnter={handleHover}>
                     START TRAINING
                 </button>
             </div>
@@ -231,7 +292,7 @@ function Game() {
                         FAILED BIOTICS VISCON
                     </h2>
                 </div>
-                <button onClick={handleStartClick}>
+                <button onClick={handleRestartClick} onMouseEnter={handleHover}>
                     RESTART TRAINING
                 </button>
             </div>
@@ -239,7 +300,7 @@ function Game() {
                 <h2>
                     BIOTICS VISCON SUCCESSFUL
                 </h2>
-                <button onClick={handleStartClick}>
+                <button onClick={handleRestartClick} onMouseEnter={handleHover}>
                     RESTART TRAINING
                 </button>
             </div>

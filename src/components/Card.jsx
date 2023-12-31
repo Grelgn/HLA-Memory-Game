@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types'
 
+const audioHover = new Audio("./src/assets/hover.wav");
+audioHover.volume = 0.2;
+
+function handleHover() {
+	audioHover.play();
+}
+
 function Card(props) {
 	return (
-		<div className="card" onClick={props.clickFunction}>
+		<div className="card" onClick={props.clickFunction} onMouseEnter={() => handleHover()}>
 			<img src={props.image} alt={props.name} />
 			<h3>{props.name}</h3>
 		</div>

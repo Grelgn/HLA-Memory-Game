@@ -112,7 +112,7 @@ main {
 .card h3 {
 	margin: 0;
 	padding: 5px;
-	font-size: 0.8rem;
+	font-size: 0.75rem;
 	font-weight: 600;
 	margin-top: -20px;
 }
@@ -166,6 +166,7 @@ main {
 	color: var(--combine-light-blue);
 	font-size: 3rem;
 	width: 40px;
+	text-align: end;
 }
 
 .score, .high-score {
