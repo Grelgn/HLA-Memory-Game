@@ -14,6 +14,15 @@ function Game() {
         { name: "REVIVER", image: "./src/assets/HLA_Reviver.png" },
         { name: "STRIDER", image: "./src/assets/HLA_Strider.png" },
         { name: "ZOMBIE", image: "./src/assets/HLA_Zombie.png" },
+        { name: "VORTIGAUNT", image: "./src/assets/HLA_Vortigaunt.png" },
+        { name: "SNARK", image: "./src/assets/HLA_Snark.png" },
+        { name: "DROPSHIP", image: "./src/assets/HLA_Dropship.png" },
+        { name: "JEFF", image: "./src/assets/HLA_Jeff.png" },
+        { name: "METRO COP", image: "./src/assets/HLA_Metrocop.png" },
+        { name: "COMBINE GRUNT", image: "./src/assets/HLA_Combine_Grunt.png" },
+        { name: "COMBINE ORDINAL", image: "./src/assets/HLA_Combine_Ordinal.png" },
+        { name: "COMBINE CHARGER", image: "./src/assets/HLA_Combine_Charger.png" },
+        { name: "COMBINE SUPPRESSOR", image: "./src/assets/HLA_Combine_Suppressor.png" },
 	]);
 	const [toggleRefresh, setToggleRefresh] = useState(false);
 	const [clickedCards, setClickedCards] = useState([]);
@@ -137,7 +146,7 @@ function Game() {
 		setScore(s => s + 1);
 
         // Won Game
-		if (score >= 8) {
+		if (score >= 17) {
             setGameVisibility(false);
             setDataVisibility(false);
             setVideo("Won");
@@ -192,15 +201,15 @@ function Game() {
                     <Card name={cardList[6].name} image={cardList[6].image} clickFunction={(e) => handleCardClick(e)} />
                     <Card name={cardList[7].name} image={cardList[7].image} clickFunction={(e) => handleCardClick(e)} />
                     <Card name={cardList[8].name} image={cardList[8].image} clickFunction={(e) => handleCardClick(e)} />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    <Card name={cardList[9].name} image={cardList[9].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[10].name} image={cardList[10].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[11].name} image={cardList[11].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[12].name} image={cardList[12].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[13].name} image={cardList[13].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[14].name} image={cardList[14].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[15].name} image={cardList[15].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[16].name} image={cardList[16].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[17].name} image={cardList[17].image} clickFunction={(e) => handleCardClick(e)} />
                 </div>
                 <Score score={score} highScore={highScore}/>
             </div>
