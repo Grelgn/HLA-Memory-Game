@@ -230,6 +230,7 @@ function Game() {
                     RESTART TRAINING
                 </button>
             </div>
+            <img src="./src/assets/temp_background.png" className="temp-background "/>
 		</main>
 	);
 }
