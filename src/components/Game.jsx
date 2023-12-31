@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import Video from "./Video";
+import Score from "./Score";
 
 function Game() {
 	const [cardList, setCardList] = useState([
@@ -34,7 +35,7 @@ function Game() {
 	}
 
     useEffect(() => {
-        const vis = document.querySelectorAll("main > div");
+        const vis = document.querySelectorAll(".game-middle > div");
         if (gameVisibility) {
             vis[0].classList.remove("invisible");
             vis[1].classList.remove("invisible");
@@ -90,31 +91,44 @@ function Game() {
 
 	return (
 		<main>
-            <Video videoState={video} key={video}/>
-			<div className="score-container">
-				<h2>SCORE: {score}</h2>
-				<h2>HIGH-SCORE: {highScore}</h2>
-			</div>
-			<div className="card-container" key={toggleRefresh}>
-				<Card name={cardList[0].name} image={cardList[0].image} clickFunction={(e) => handleCardClick(e)} />
-				<Card name={cardList[1].name} image={cardList[1].image} clickFunction={(e) => handleCardClick(e)} />
-				<Card name={cardList[2].name} image={cardList[2].image} clickFunction={(e) => handleCardClick(e)} />
-				<Card name={cardList[3].name} image={cardList[3].image} clickFunction={(e) => handleCardClick(e)} />
-				<Card name={cardList[4].name} image={cardList[4].image} clickFunction={(e) => handleCardClick(e)} />
-				<Card name={cardList[5].name} image={cardList[5].image} clickFunction={(e) => handleCardClick(e)} />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-			</div>
+            <div className="game-top">
+                <div className="top-left">
+                    <b>ECHO-1-12-7</b>
+                    <p>XXXXXXXXXXXX..XXX.X.X</p>
+                </div>
+                <div className="top-right">
+                    <p>BIOTIC VISCON TRAINING STATION 0.3.3.333</p>
+                    <img src="./src/assets/combine_logo.png"/>
+                </div>
+            </div>
+            <div className="game-middle">
+                <Video videoState={video} key={video}/>
+                
+                <div className="card-container" key={toggleRefresh}>
+                    <Card name={cardList[0].name} image={cardList[0].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[1].name} image={cardList[1].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[2].name} image={cardList[2].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[3].name} image={cardList[3].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[4].name} image={cardList[4].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[5].name} image={cardList[5].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </div>
+                <Score score={score} highScore={highScore}/>
+            </div>
+            <div className="game-bottom">
+                <p>HELLO</p>
+            </div>
 		</main>
 	);
 }

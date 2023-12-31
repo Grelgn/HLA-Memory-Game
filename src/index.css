@@ -5,6 +5,7 @@
 	--combine-text: hsl(188, 69%, 44%);
 	--combine-hover: hsl(194, 98%, 37%);
 	--combine-hovertext: hsl(188, 74%, 53%);
+	--combine-dark: hsl(192, 81%, 33%);
 }
 
 body {
@@ -69,26 +70,20 @@ main {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	margin-bottom: 35px;
 	display: grid;
-	grid-auto-flow: column;
-	align-content: center;
 	justify-content: center;
-	gap: 10px;
-	align-items: start;
+	align-items: center;
+	align-content: center;
+	color: var(--combine-blue);
 }
 
-main {
-	background-image: url(./assets/Russels_Lab_80.jpg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+.game-middle {
 	display: grid;
 	grid-auto-flow: column;
 	align-content: center;
 	justify-content: center;
-	gap: 10px;
 	align-items: start;
-	margin-bottom: 35px;
 	margin-left: -125px;
 }
 
@@ -100,10 +95,10 @@ main {
 
 .card {
 	padding: 0;
-	color: var(--combine-blue);
 	display: grid;
 	cursor: pointer;
 	border: 2px solid var(--combine-blue);
+	overflow: hidden;
 }
 
 .card:hover {
@@ -117,6 +112,7 @@ main {
 	padding: 5px;
 	font-size: 0.8rem;
 	font-weight: 600;
+	margin-top: -15px;
 }
 
 .card-container {
@@ -134,32 +130,104 @@ main {
 	height: 175px;
 	object-fit: contain;
 	object-position: center;
+	margin-top: -10px;
+	transform: scale(1.1);
 }
 
 .score-container {
 	display: grid;
-	margin: 10px;
+	margin: 10px 5px;
 	padding: 0;
 	height: 108px;
-	width: 190px;
-	color: var(--combine-blue);
+	width: 220px;
 	align-items: center;
-	border-left: 4px solid var(--combine-blue);
+	border-left: 5px solid var(--combine-blue);
 	z-index: 1;
+	justify-items: end;
+	align-content: center;
 }
 
 .score-container h2 {
 	padding: 0 10px;
 	margin: 0;
-	font-weight: 300;
+	font-weight: 400;
+}
+
+.score-container b{
+	font-weight: 400;
+	color: var(--combine-light-blue);
+	font-size: 3rem;
+	width: 40px;
+}
+
+.score, .high-score {
+	display: grid;
+	grid-auto-flow: column;
+	align-items: baseline;
 }
 
 video {
-	transform: scale(14) translateX(52.5%) translateY(43%);
+	transform: scale(13.5) translateX(51.5%) translateY(38%);
 	filter: brightness(80%);
 	border-left: 1px solid var(--combine-blue);
 }
 
 .invisible {
 	visibility: hidden;
+}
+
+.game-top,
+.game-bottom {
+	z-index: 1;
+}
+
+.game-top {
+	border-bottom: 1px solid var(--combine-dark);
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: space-between;
+	color: var(--combine-dark);
+	width: 1162px;
+	margin-right: 20px;
+}
+
+.top-right {
+	display: grid;
+	grid-auto-flow: column;
+	align-items: end;
+	gap: 10px;
+	padding-right: 10px;
+	margin-bottom: 4px;
+}
+
+.top-right p {
+	font-size: 0.7rem;
+	font-weight: 600;
+	margin: 0;
+	padding-bottom: 5px;
+}
+
+.top-right img {
+	height: 50px;
+	filter: brightness(100%) sepia(100) saturate(13) hue-rotate(120deg);
+}
+
+.top-left {
+	font-size: 1.4rem;
+	font-weight: 300;
+	display: grid;
+	grid-auto-flow: column;
+	align-items: end;
+	margin-bottom: 15px;
+	gap: 20px;
+}
+
+.top-left p {
+	margin: 0;
+	letter-spacing: 4px;
+}
+
+.top-left b {
+	font-weight: 500;
+	color: var(--combine-blue);
 }
