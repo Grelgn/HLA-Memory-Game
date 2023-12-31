@@ -136,6 +136,7 @@ main {
 	object-position: center;
 	margin-top: -15px;
 	transform: scale(1);
+	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(2px 2px 2px hsla(0, 0%, 0%, 0.5));
 }
 
 .score-container {
