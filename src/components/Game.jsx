@@ -11,6 +11,9 @@ function Game() {
 		{ name: "BARNACLE", image: "./src/assets/HLA_Barnacle.png" },
 		{ name: "ANTLION SOLDIER", image: "./src/assets/HLA_AntlionSoldier.png" },
 		{ name: "ANTLION WORKER", image: "./src/assets/HLA_AntlionWorker.png" },
+        { name: "REVIVER", image: "./src/assets/HLA_Reviver.png" },
+        { name: "STRIDER", image: "./src/assets/HLA_Strider.png" },
+        { name: "ZOMBIE", image: "./src/assets/HLA_Zombie.png" },
 	]);
 	const [toggleRefresh, setToggleRefresh] = useState(false);
 	const [clickedCards, setClickedCards] = useState([]);
@@ -134,7 +137,7 @@ function Game() {
 		setScore(s => s + 1);
 
         // Won Game
-		if (score >= 5) {
+		if (score >= 8) {
             setGameVisibility(false);
             setDataVisibility(false);
             setVideo("Won");
@@ -162,6 +165,7 @@ function Game() {
         setLostVisibility(false);
         setWonVisibility(false);
         setGameVisibility(true);
+        randomizeCards();
     }
 
 	return (
@@ -185,9 +189,9 @@ function Game() {
                     <Card name={cardList[3].name} image={cardList[3].image} clickFunction={(e) => handleCardClick(e)} />
                     <Card name={cardList[4].name} image={cardList[4].image} clickFunction={(e) => handleCardClick(e)} />
                     <Card name={cardList[5].name} image={cardList[5].image} clickFunction={(e) => handleCardClick(e)} />
-                    <Card />
-                    <Card />
-                    <Card />
+                    <Card name={cardList[6].name} image={cardList[6].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[7].name} image={cardList[7].image} clickFunction={(e) => handleCardClick(e)} />
+                    <Card name={cardList[8].name} image={cardList[8].image} clickFunction={(e) => handleCardClick(e)} />
                     <Card />
                     <Card />
                     <Card />
