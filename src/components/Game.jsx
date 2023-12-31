@@ -3,26 +3,58 @@ import Card from "./Card";
 import Video from "./Video";
 import Score from "./Score";
 
+import imgHeadcrab from "/dist/assets/HLA_Headcrab.png";
+import imgPoisonHeadcrab from "/dist/assets/HLA_PoisonHeadcrab.png";
+import imgArmoredHeadcrab from "/dist/assets/HLA_ArmoredHeadcrab.png";
+import imgBarnacle from "/dist/assets/HLA_Barnacle.png";
+import imgAntlionSoldier from "/dist/assets/HLA_AntlionSoldier.png";
+import imgAntlionWorker from "/dist/assets/HLA_AntlionWorker.png";
+import imgReviver from "/dist/assets/HLA_Reviver.png";
+import imgStrider from "/dist/assets/HLA_Strider.png";
+import imgZombie from "/dist/assets/HLA_Zombie.png";
+import imgVortigaunt from "/dist/assets/HLA_Vortigaunt.png";
+import imgSnark from "/dist/assets/HLA_Snark.png";
+import imgDropship from "/dist/assets/HLA_Dropship.png";
+import imgJeff from "/dist/assets/HLA_Jeff.png";
+import imgMetroCop from "/dist/assets/HLA_Metrocop.png";
+import imgCombineGrunt from "/dist/assets/HLA_Combine_Grunt.png";
+import imgCombineOrdinal from "/dist/assets/HLA_Combine_Ordinal.png";
+import imgCombineCharger from "/dist/assets/HLA_Combine_Charger.png";
+import imgCombineSuppressor from "/dist/assets/HLA_Combine_Suppressor.png";
+
+import imgCombineLogo from "/dist/assets/combine_logo.png";
+import imgBarcode from "/dist/assets/barcode.png";
+import imgTempBackground from "/dist/assets/temp_background.png";
+
+import audOpen from "/dist/assets/open.wav";
+import audStart from "/dist/assets/start.wav";
+import audSelect from "/dist/assets/select.wav";
+import audComplete from "/dist/assets/complete.wav";
+import audHover from "/dist/assets/hover.wav";
+import audRetract from "/dist/assets/retract.wav";
+import audRetract2 from "/dist/assets/retract2.wav";
+import audFail from "/dist/assets/fail.wav";
+
 function Game() {
 	const [cardList, setCardList] = useState([
-		{ name: "HEADCRAB", image: "/dist/assets/HLA_Headcrab.png" },
-		{ name: "POISON HEADCRAB", image: "/dist/assets/HLA_PoisonHeadcrab.png" },
-		{ name: "ARMORED HEADCRAB", image: "/dist/assets/HLA_ArmoredHeadcrab.png" },
-		{ name: "BARNACLE", image: "/dist/assets/HLA_Barnacle.png" },
-		{ name: "ANTLION SOLDIER", image: "/dist/assets/HLA_AntlionSoldier.png" },
-		{ name: "ANTLION WORKER", image: "/dist/assets/HLA_AntlionWorker.png" },
-        { name: "REVIVER", image: "/dist/assets/HLA_Reviver.png" },
-        { name: "STRIDER", image: "/dist/assets/HLA_Strider.png" },
-        { name: "ZOMBIE", image: "/dist/assets/HLA_Zombie.png" },
-        { name: "VORTIGAUNT", image: "/dist/assets/HLA_Vortigaunt.png" },
-        { name: "SNARK", image: "/dist/assets/HLA_Snark.png" },
-        { name: "DROPSHIP", image: "/dist/assets/HLA_Dropship.png" },
-        { name: "JEFF", image: "/dist/assets/HLA_Jeff.png" },
-        { name: "METRO COP", image: "/dist/assets/HLA_Metrocop.png" },
-        { name: "COMBINE GRUNT", image: "/dist/assets/HLA_Combine_Grunt.png" },
-        { name: "COMBINE ORDINAL", image: "/dist/assets/HLA_Combine_Ordinal.png" },
-        { name: "COMBINE CHARGER", image: "/dist/assets/HLA_Combine_Charger.png" },
-        { name: "COMBINE SUPPRESSOR", image: "/dist/assets/HLA_Combine_Suppressor.png" },
+		{ name: "HEADCRAB", image: imgHeadcrab },
+		{ name: "POISON HEADCRAB", image: imgPoisonHeadcrab },
+		{ name: "ARMORED HEADCRAB", image: imgArmoredHeadcrab},
+		{ name: "BARNACLE", image: imgBarnacle },
+		{ name: "ANTLION SOLDIER", image: imgAntlionSoldier },
+		{ name: "ANTLION WORKER", image: imgAntlionWorker },
+        { name: "REVIVER", image: imgReviver },
+        { name: "STRIDER", image: imgStrider },
+        { name: "ZOMBIE", image: imgZombie },
+        { name: "VORTIGAUNT", image: imgVortigaunt },
+        { name: "SNARK", image: imgSnark },
+        { name: "DROPSHIP", image: imgDropship },
+        { name: "JEFF", image: imgJeff },
+        { name: "METRO COP", image: imgMetroCop },
+        { name: "COMBINE GRUNT", image: imgCombineGrunt },
+        { name: "COMBINE ORDINAL", image: imgCombineOrdinal },
+        { name: "COMBINE CHARGER", image: imgCombineCharger },
+        { name: "COMBINE SUPPRESSOR", image: imgCombineSuppressor },
 	]);
 	const [toggleRefresh, setToggleRefresh] = useState(false);
 	const [clickedCards, setClickedCards] = useState([]);
@@ -36,14 +68,14 @@ function Game() {
     const [wonVisibility, setWonVisibility] = useState(false);
 
     //Sounds
-    const audioOpen = new Audio("/dist/assets/open.wav");
-    const audioStart = new Audio("/dist/assets/start.wav");
-    const audioSelect = new Audio("/dist/assets/select.wav");
-    const audioComplete = new Audio("/dist/assets/complete.wav");
-    const audioHover = new Audio("/dist/assets/hover.wav");
-    const audioRetract = new Audio("/dist/assets/retract.wav");
-    const audioRetract2 = new Audio("/dist/assets/retract2.wav");
-    const audioFail = new Audio("/dist/assets/fail.wav");
+    const audioOpen = new Audio(audOpen);
+    const audioStart = new Audio(audStart);
+    const audioSelect = new Audio(audSelect);
+    const audioComplete = new Audio(audComplete);
+    const audioHover = new Audio(audHover);
+    const audioRetract = new Audio(audRetract);
+    const audioRetract2 = new Audio(audRetract2);
+    const audioFail = new Audio(audFail);
 
     audioOpen.volume = 0.08;
     audioStart.volume = 0.08;
@@ -237,7 +269,7 @@ function Game() {
                 </div>
                 <div className="top-right">
                     <p>BIOTICS VISCON TRAINING STATION 0.3.3.333</p>
-                    <img src="/dist/assets/combine_logo.png"/>
+                    <img src={imgCombineLogo}/>
                 </div>
             </div>
             <div className="game-middle">
@@ -265,7 +297,7 @@ function Game() {
                 <Score score={score} highScore={highScore}/>
             </div>
             <div className="game-bottom">
-                <img src="/dist/assets/barcode.png" />
+                <img src={imgBarcode} />
             </div>
             <div className="start invisible">
                 <h2>
@@ -294,7 +326,7 @@ function Game() {
                     RESTART TRAINING
                 </button>
             </div>
-            <img src="/dist/assets/temp_background.png" className="temp-background "/>
+            <img src={imgTempBackground} className="temp-background "/>
 		</main>
 	);
 }
