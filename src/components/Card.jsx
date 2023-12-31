@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 
-const audioHover = new Audio("./src/assets/hover.wav");
-audioHover.volume = 0.2;
-
 function handleHover() {
+	const audioHover = new Audio("./src/assets/hover.wav");
+	audioHover.volume = 0.1;
 	audioHover.play();
 }
 

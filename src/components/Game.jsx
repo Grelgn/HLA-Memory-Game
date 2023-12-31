@@ -46,14 +46,14 @@ function Game() {
     const audioFail = new Audio("./src/assets/fail.wav");
     // const audioLoop = new Audio("./src/assets/underground.mp3");
 
-    audioOpen.volume = 0.1;
-    audioStart.volume = 0.1;
-    audioSelect.volume = 0.2;
-    audioComplete.volume = 0.2;
-    audioHover.volume = 0.2;
-    audioRetract.volume = 0.1;
-    audioRetract2.volume = 0.1;
-    audioFail.volume = 0.2;
+    audioOpen.volume = 0.08;
+    audioStart.volume = 0.08;
+    audioSelect.volume = 0.15;
+    audioComplete.volume = 0.15;
+    audioHover.volume = 0.1;
+    audioRetract.volume = 0.08;
+    audioRetract2.volume = 0.08;
+    audioFail.volume = 0.15;
     // audioLoop.volume = 0.03;
 
     // audioLoop.addEventListener('timeupdate', function(){

@@ -1,12 +1,9 @@
 :root {
 	--combine-blue: hsl(189, 95%, 44%);
 	--combine-light-blue: hsl(180, 57%, 57%);
-	--combine-dark-blue: hsl(197, 83%, 9%, 0.4);
-	--combine-text: hsl(188, 69%, 44%);
 	--combine-hover: hsl(194, 98%, 37%);
 	--combine-hovertext: hsl(188, 74%, 53%);
 	--combine-dark: hsl(192, 81%, 33%);
-	--combine-background: hsl(198, 75%, 16%, 0.4);
 }
 
 body {
@@ -85,7 +82,7 @@ main {
 	align-content: center;
 	justify-content: center;
 	align-items: start;
-	margin-left: -106px;
+	margin-left: -80px;
 }
 
 #root {
@@ -289,7 +286,43 @@ video {
 	scale: 50%;
 	top: 50%;
 	left: 50%;
-	transform: scaleX(1.76) translateX(-57.6%) translateY(-93.9%);
+	transform: scaleX(1.76) translateX(-56.3%) translateY(-93.5%);
 	height: 1352px;
 	z-index: 1;
+}
+
+@media (max-width: 1250px) {
+	header, main, footer {
+		zoom: 0.8;
+	}
+}
+
+@media (max-width: 980px) {
+	header, main, footer {
+		zoom: 0.6;
+	}
+}
+
+@media (max-width: 750px) {
+	header, main, footer {
+		zoom: 0.5;
+	}
+}
+
+@media (max-width: 630px) {
+	header, main, footer {
+		zoom: 0.4;
+	}
+}
+
+@media (max-width: 500px) {
+	header, main, footer {
+		zoom: 0.3;
+	}
+}
+
+@media (max-width: 370px) {
+	header, main, footer {
+		zoom: 0.25;
+	}
 }
