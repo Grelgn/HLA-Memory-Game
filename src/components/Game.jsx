@@ -5,24 +5,24 @@ import Score from "./Score";
 
 function Game() {
 	const [cardList, setCardList] = useState([
-		{ name: "HEADCRAB", image: "/src/assets/HLA_Headcrab.png" },
-		{ name: "POISON HEADCRAB", image: "/src/assets/HLA_PoisonHeadcrab.png" },
-		{ name: "ARMORED HEADCRAB", image: "/src/assets/HLA_ArmoredHeadcrab.png" },
-		{ name: "BARNACLE", image: "/src/assets/HLA_Barnacle.png" },
-		{ name: "ANTLION SOLDIER", image: "/src/assets/HLA_AntlionSoldier.png" },
-		{ name: "ANTLION WORKER", image: "/src/assets/HLA_AntlionWorker.png" },
-        { name: "REVIVER", image: "/src/assets/HLA_Reviver.png" },
-        { name: "STRIDER", image: "/src/assets/HLA_Strider.png" },
-        { name: "ZOMBIE", image: "/src/assets/HLA_Zombie.png" },
-        { name: "VORTIGAUNT", image: "/src/assets/HLA_Vortigaunt.png" },
-        { name: "SNARK", image: "/src/assets/HLA_Snark.png" },
-        { name: "DROPSHIP", image: "/src/assets/HLA_Dropship.png" },
-        { name: "JEFF", image: "/src/assets/HLA_Jeff.png" },
-        { name: "METRO COP", image: "/src/assets/HLA_Metrocop.png" },
-        { name: "COMBINE GRUNT", image: "/src/assets/HLA_Combine_Grunt.png" },
-        { name: "COMBINE ORDINAL", image: "/src/assets/HLA_Combine_Ordinal.png" },
-        { name: "COMBINE CHARGER", image: "/src/assets/HLA_Combine_Charger.png" },
-        { name: "COMBINE SUPPRESSOR", image: "/src/assets/HLA_Combine_Suppressor.png" },
+		{ name: "HEADCRAB", image: "/dist/assets/HLA_Headcrab.png" },
+		{ name: "POISON HEADCRAB", image: "/dist/assets/HLA_PoisonHeadcrab.png" },
+		{ name: "ARMORED HEADCRAB", image: "/dist/assets/HLA_ArmoredHeadcrab.png" },
+		{ name: "BARNACLE", image: "/dist/assets/HLA_Barnacle.png" },
+		{ name: "ANTLION SOLDIER", image: "/dist/assets/HLA_AntlionSoldier.png" },
+		{ name: "ANTLION WORKER", image: "/dist/assets/HLA_AntlionWorker.png" },
+        { name: "REVIVER", image: "/dist/assets/HLA_Reviver.png" },
+        { name: "STRIDER", image: "/dist/assets/HLA_Strider.png" },
+        { name: "ZOMBIE", image: "/dist/assets/HLA_Zombie.png" },
+        { name: "VORTIGAUNT", image: "/dist/assets/HLA_Vortigaunt.png" },
+        { name: "SNARK", image: "/dist/assets/HLA_Snark.png" },
+        { name: "DROPSHIP", image: "/dist/assets/HLA_Dropship.png" },
+        { name: "JEFF", image: "/dist/assets/HLA_Jeff.png" },
+        { name: "METRO COP", image: "/dist/assets/HLA_Metrocop.png" },
+        { name: "COMBINE GRUNT", image: "/dist/assets/HLA_Combine_Grunt.png" },
+        { name: "COMBINE ORDINAL", image: "/dist/assets/HLA_Combine_Ordinal.png" },
+        { name: "COMBINE CHARGER", image: "/dist/assets/HLA_Combine_Charger.png" },
+        { name: "COMBINE SUPPRESSOR", image: "/dist/assets/HLA_Combine_Suppressor.png" },
 	]);
 	const [toggleRefresh, setToggleRefresh] = useState(false);
 	const [clickedCards, setClickedCards] = useState([]);
@@ -36,15 +36,14 @@ function Game() {
     const [wonVisibility, setWonVisibility] = useState(false);
 
     //Sounds
-    const audioOpen = new Audio("/src/assets/open.wav");
-    const audioStart = new Audio("/src/assets/start.wav");
-    const audioSelect = new Audio("/src/assets/select.wav");
-    const audioComplete = new Audio("/src/assets/complete.wav");
-    const audioHover = new Audio("/src/assets/hover.wav");
-    const audioRetract = new Audio("/src/assets/retract.wav");
-    const audioRetract2 = new Audio("/src/assets/retract2.wav");
-    const audioFail = new Audio("/src/assets/fail.wav");
-    // const audioLoop = new Audio("/src/assets/underground.mp3");
+    const audioOpen = new Audio("/dist/assets/open.wav");
+    const audioStart = new Audio("/dist/assets/start.wav");
+    const audioSelect = new Audio("/dist/assets/select.wav");
+    const audioComplete = new Audio("/dist/assets/complete.wav");
+    const audioHover = new Audio("/dist/assets/hover.wav");
+    const audioRetract = new Audio("/dist/assets/retract.wav");
+    const audioRetract2 = new Audio("/dist/assets/retract2.wav");
+    const audioFail = new Audio("/dist/assets/fail.wav");
 
     audioOpen.volume = 0.08;
     audioStart.volume = 0.08;
@@ -54,15 +53,6 @@ function Game() {
     audioRetract.volume = 0.08;
     audioRetract2.volume = 0.08;
     audioFail.volume = 0.15;
-    // audioLoop.volume = 0.03;
-
-    // audioLoop.addEventListener('timeupdate', function(){
-    //     const buffer = 0.356;
-    //     if(this.currentTime > this.duration - buffer){
-    //         this.currentTime = 0
-    //         this.play()
-    //     }
-    // });
 
 	function randomizeCards() {
 		let currentIndex = cardList.length,
@@ -247,7 +237,7 @@ function Game() {
                 </div>
                 <div className="top-right">
                     <p>BIOTICS VISCON TRAINING STATION 0.3.3.333</p>
-                    <img src="/src/assets/combine_logo.png"/>
+                    <img src="/dist/assets/combine_logo.png"/>
                 </div>
             </div>
             <div className="game-middle">
@@ -275,7 +265,7 @@ function Game() {
                 <Score score={score} highScore={highScore}/>
             </div>
             <div className="game-bottom">
-                <img src="/src/assets/barcode.png" />
+                <img src="/dist/assets/barcode.png" />
             </div>
             <div className="start invisible">
                 <h2>
@@ -304,7 +294,7 @@ function Game() {
                     RESTART TRAINING
                 </button>
             </div>
-            <img src="/src/assets/temp_background.png" className="temp-background "/>
+            <img src="/dist/assets/temp_background.png" className="temp-background "/>
 		</main>
 	);
 }

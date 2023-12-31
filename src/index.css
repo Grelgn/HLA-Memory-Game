@@ -64,7 +64,7 @@ footer i {
 }
 
 main {
-	background-image: url(./assets/Russels_Lab_80.jpg);
+	background-image: url(/dist/assets/Russels_Lab_80.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -82,7 +82,7 @@ main {
 	align-content: center;
 	justify-content: center;
 	align-items: start;
-	margin-left: -80px;
+	margin-left: -75px;
 }
 
 #root {
@@ -191,7 +191,7 @@ video {
 .game-bottom img {
 	height: 57px;
 	filter: brightness(140%);
-	transform: translateY(-5px) scaleX(235%) translateX(29.5%);
+	transform: translateY(-5px) scaleX(235%) translateX(34%);
 }
 
 .game-top {
@@ -201,7 +201,7 @@ video {
 	justify-content: space-between;
 	color: var(--combine-dark);
 	width: 1160px;
-	transform: translateX(5px);
+	transform: translateX(25px);
 }
 
 .top-right {
