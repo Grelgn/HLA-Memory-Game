@@ -1,5 +1,5 @@
 # Half Life: Alyx - Memory Game
-#### Video Demo:  https://www.youtube.com/watch?v=22QgJWGIVVo
+#### Live Demo: https://stalwart-daffodil-698731.netlify.app/
 #### Description:
 This is a Memory Card Game, where your objective is avoid selecting the same card twice.
 Select all 18 cards to win.
@@ -15,22 +15,13 @@ The font used is Exo 2, which has the most resemblance to the font used by Valve
 
 This project uses React and JavaScript.
 
-Basic pseudocode of the game itself:
-1. Load a png version of the looping background video, so that when changing the video, the disappearance is not noticed.
-2. Load looping video and the start button.
-3. When user clicks the start button, Load the intro video and sound effects.
-4. Switch to looping video, Load the game elements, The fake UI around the game, score and high-score, and cards.
-5. When clicking a card, check if that card's name is in the "clickedCards" array continue with step 6. If it is not in the array, skip to step 10.
-6. If it is update the high-score if it is higher than the previous high-score. 
-7. Load the Lose video and sound effects.
-8. After the animation, Load "retry" button.
-9. When the user clicks the retry button, go back to step 4.
-10. Add the card's name to the clickedCards array. Update the score.
-11. If the score is more than 17, continue. If not, go back to step 5.
-12. Load the Win video and sound effects.
-13. Load the winning prompt, and the "retry" button.
-14. When the user clicks the retry button, go back to step 4.
-
-The live demo of the game can be found here: https://stalwart-daffodil-698731.netlify.app/
-
 The assets owned by Valve Corporation are utilized in this project under fair use conditions.
+
+### Reference:
+![chrome_gvvGfWoMf9](https://github.com/Grelgn/HLA-Memory-Game/assets/86077715/86aadfc3-dcf1-4545-b63a-a9f6ef8d90ce)
+![chrome_Qgk5qKFxL0](https://github.com/Grelgn/HLA-Memory-Game/assets/86077715/4c9949f0-0df3-45e8-abb2-3f9a19f4e206)
+
+### Result:
+
+![chrome_N1b4GCPSWg](https://github.com/Grelgn/HLA-Memory-Game/assets/86077715/f2c8ff9b-b162-47d2-b90f-ea18ccfb683d)
+![chrome_sMdPtlowgE](https://github.com/Grelgn/HLA-Memory-Game/assets/86077715/b1e73516-0cf5-4e42-b915-b07f66977be7)
