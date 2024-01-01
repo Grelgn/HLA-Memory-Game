@@ -32,7 +32,6 @@ import audSelect from "/dist/assets/select.wav";
 import audComplete from "/dist/assets/complete.wav";
 import audHover from "/dist/assets/hover.wav";
 import audRetract from "/dist/assets/retract.wav";
-import audRetract2 from "/dist/assets/retract2.wav";
 import audFail from "/dist/assets/fail.wav";
 
 function Game() {
@@ -74,7 +73,6 @@ function Game() {
     const audioComplete = new Audio(audComplete);
     const audioHover = new Audio(audHover);
     const audioRetract = new Audio(audRetract);
-    const audioRetract2 = new Audio(audRetract2);
     const audioFail = new Audio(audFail);
 
     audioOpen.volume = 0.08;
@@ -83,7 +81,6 @@ function Game() {
     audioComplete.volume = 0.15;
     audioHover.volume = 0.1;
     audioRetract.volume = 0.08;
-    audioRetract2.volume = 0.08;
     audioFail.volume = 0.15;
 
 	function randomizeCards() {
@@ -99,6 +96,13 @@ function Game() {
 
 		setCardList(cardList);
 		setToggleRefresh(!toggleRefresh);
+        
+        setTimeout(() => {
+            const cards = document.querySelectorAll(".card img");
+            cards.forEach(card => {
+            card.classList.add("glitch");
+        });
+        }, 1);
 	}
 
     // Show-Hide game
@@ -157,6 +161,7 @@ function Game() {
     }, [wonVisibility]);
 
 	function handleCardClick(e) {
+        
 		const name = e.target.parentNode.innerText;
 
         // Lost Game
@@ -164,10 +169,7 @@ function Game() {
             audioFail.play();
             setTimeout(() => {
                 audioRetract.play();
-            }, 1200);
-            setTimeout(() => {
-                audioRetract2.play();
-            }, 4200);
+            }, 200);
 
             setGameVisibility(false);
             setDataVisibility(false);
@@ -177,7 +179,6 @@ function Game() {
                 setHighScore(score);
             }
 			
-			console.log("GAME OVER");
 			setClickedCards([]);
 			setScore(0);
 
@@ -187,7 +188,7 @@ function Game() {
                 setVideo("Loop");
                 setDataVisibility(true);
                 setLostVisibility(true);
-            }, 8000);
+            }, 4000);
 
 			return;
 		}
@@ -202,7 +203,6 @@ function Game() {
             setDataVisibility(false);
             setVideo("Won");
             setHighScore(score + 1);
-			console.log("YOU WIN");
             setClickedCards([]);
 			setScore(0);
 

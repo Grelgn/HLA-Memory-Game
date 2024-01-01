@@ -133,7 +133,7 @@ main {
 	object-position: center;
 	margin-top: -15px;
 	transform: scale(1);
-	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(2px 2px 5px hsla(0, 0%, 0%, 0.3));
+	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(0 0 5px hsla(189, 95%, 44%, 0.2));
 }
 
 .score-container {
@@ -289,6 +289,39 @@ video {
 	transform: scaleX(1.76) translateX(-56.3%) translateY(-93.5%);
 	height: 1352px;
 	z-index: 1;
+}
+
+.glitch {
+	animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
+}
+  
+@keyframes shake {
+	0% {
+	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(0 0 5px hsla(189, 95%, 44%, 0.2)) blur(20px);
+	}
+
+	10%, 90% {
+	transform: translate3d(-1px, 0, 0);
+	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(0 0 5px hsla(189, 95%, 44%, 0.2)) blur(5px);
+	}
+	
+	20%, 80% {
+	transform: translate3d(2px, 0, 0);
+	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(0 0 5px hsla(189, 95%, 44%, 0.2)) blur(15px)
+	}
+
+	30%, 50%, 70% {
+	transform: translate3d(-4px, 0, 0);
+	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(0 0 5px hsla(189, 95%, 44%, 0.2)) blur(2px);
+	}
+
+	40%, 60% {
+	transform: translate3d(4px, 0, 0);
+	filter: sepia(1) hue-rotate(150deg) saturate(2) contrast(1.2) drop-shadow(0 0 5px hsla(189, 95%, 44%, 0.2)) blur(10px);
+	}
 }
 
 @media (max-width: 1250px) {
